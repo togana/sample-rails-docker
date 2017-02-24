@@ -1,7 +1,9 @@
 FROM ruby:2.4.0
 MAINTAINER o.togana@gmail.com
 
-WORKDIR /usr/src/app
+ENV APP_ROOT /usr/src/app
+
+WORKDIR $APP_ROOT
 EXPOSE 3000
 
 RUN apt-get update && apt-get install -y \
@@ -10,3 +12,9 @@ RUN apt-get update && apt-get install -y \
       postgresql-client \
       sqlite3 \
       --no-install-recommends && rm -rf /var/lib/apt/lists/*
+
+COPY Gemfile $APP_ROOT
+COPY Gemfile.lock $APP_ROOT
+RUN bundle install
+
+COPY . $APP_ROOT
