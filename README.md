@@ -7,6 +7,7 @@ railsアプリをdockerイメージ化するサンプル
 
 - Docker version 1.13.1, build 092cba3
 - docker-machine version 0.9.0, build 15fd4c7
+- docker-compose version 1.11.2, build unknown
 - VirtualBox 5.1.10
 
 ## 開発時
@@ -27,13 +28,19 @@ $ eval $(docker-machine env s-rails)
 
 ```sh
 # 初回 or Gemfile or Gemfile.lockを編集した時buildする必要がある
-$ docker build -t s-rails .
+$ docker-compose build
 ```
 
 実行
 
 ```sh
-$ docker run --rm -p 3000:3000 -v "$PWD":/usr/src/app s-rails
+$ docker-compose up -d
+```
+
+停止
+
+```
+$ docker-compose down -v
 ```
 
 ## 実行時に出る警告について
