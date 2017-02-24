@@ -4,7 +4,17 @@ services:
     build: .
     environment:
       RAILS_ENV: development
+      DATABASE_URL: mysql2://root:pass@mysql:3306
     ports:
       - '3000:3000'
     volumes:
       - .:/usr/src/app
+  mysql:
+    image: mysql:8.0.0
+    environment:
+      MYSQL_ROOT_PASSWORD: 'pass'
+    volumes:
+      - mysql-data:/var/lib/mysql
+volumes:
+  mysql-data:
+    driver: local
