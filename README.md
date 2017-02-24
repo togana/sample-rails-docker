@@ -35,6 +35,10 @@ $ docker-compose build
 
 ```sh
 $ docker-compose up -d
+# schemeの生成(必要時に実行)
+$ docker-compose run --rm app rake db:create
+# migrate(必要時に実行)
+$ docker-compose run --rm app rake db:migrate
 ```
 
 停止
