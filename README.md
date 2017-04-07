@@ -47,13 +47,3 @@ $ docker-compose run --rm app rake db:migrate
 $ docker-compose down -v
 ```
 
-## 実行時に出る警告について
-
-```
-/usr/local/bundle/gems/activesupport-5.0.1/lib/active_support/xml_mini.rb:51: warning: constant ::Fixnum is deprecated
-/usr/local/bundle/gems/activesupport-5.0.1/lib/active_support/xml_mini.rb:52: warning: constant ::Bignum is deprecated
-/usr/local/bundle/gems/activesupport-5.0.1/lib/active_support/core_ext/numeric/conversions.rb:138: warning: constant ::Fixnum is deprecated
-```
-
-https://github.com/rails/rails/issues/28091
-version 5.0.2で治るみたいなのでリリースされたら対応します
